@@ -1,0 +1,6 @@
+{
+  "name": "Luna y la Isla de las Palabras",
+  "description": "App educativa interactiva para repasar vocabulario, sílabas, adjetivos, sustantivos y verbos para una niña de 6 años. Optimizado para tablet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

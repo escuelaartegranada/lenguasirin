@@ -1,0 +1,9 @@
+{
+  "name": "Luna y la Isla de las Palabras",
+  "short_name": "IslaPalabras",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#38bdf8",
+  "description": "App educativa para repasar lengua"
+}
