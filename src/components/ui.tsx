@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 
 // A large, kid-friendly button
 interface ButtonProps extends HTMLMotionProps<"button"> {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'ghost' | '3d';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'ghost' | '3d' | 'option';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   playSound?: boolean;
 }
@@ -27,6 +27,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       danger: 'bg-gradient-to-b from-rose-300 to-rose-500 text-white hover:from-rose-400 hover:to-rose-600 shadow-[0_6px_0_theme(colors.rose.700)] active:shadow-[0_0px_0_theme(colors.rose.700)] active:translate-y-1.5 border-2 border-rose-400',
       ghost: 'bg-transparent text-slate-600 hover:bg-slate-100 shadow-none border-2 border-transparent hover:border-slate-200',
       '3d': 'bg-gradient-to-br from-amber-200 to-amber-400 text-amber-900 border-b-8 border-amber-600 rounded-3xl hover:brightness-110 active:border-b-0 active:translate-y-2',
+      'option': 'bg-gradient-to-b from-indigo-100 to-indigo-200 text-indigo-900 border-4 border-indigo-400 rounded-3xl hover:from-indigo-200 hover:to-indigo-300 hover:border-indigo-500 shadow-[0_6px_0_theme(colors.indigo.400)] hover:shadow-[0_6px_0_theme(colors.indigo.500)] active:shadow-[0_0px_0_theme(colors.indigo.500)] active:translate-y-1.5',
     };
 
     const sizes = {
@@ -63,7 +64,7 @@ Button.displayName = 'Button';
 export const Card = ({ className, children, hoverEffect = false, animate = false }: { className?: string, children: React.ReactNode, hoverEffect?: boolean, animate?: boolean }) => {
   const content = (
     <div className={cn(
-      'bg-white rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-4 border-white overflow-hidden backdrop-blur-sm',
+      'bg-white rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-4 border-white backdrop-blur-sm',
       hoverEffect && 'transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.12)]',
       className
     )}>

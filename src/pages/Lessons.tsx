@@ -84,10 +84,10 @@ export const Lessons = () => {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-4 border-sky-200 text-center relative"
+              className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-8 border-sky-200 text-center relative"
             >
-              <div className="absolute top-4 right-4">
-                <AudioButton text={`${LESSONS.find(l => l.id === activeLesson)?.text} ${LESSONS.find(l => l.id === activeLesson)?.example}`} />
+              <div className="absolute -top-6 -right-4 z-20">
+                <AudioButton text={`${LESSONS.find(l => l.id === activeLesson)?.text} ${LESSONS.find(l => l.id === activeLesson)?.example}`} className="w-16 h-16 shadow-xl" />
               </div>
               <h3 className="text-3xl font-black text-sky-600 mb-6">{LESSONS.find(l => l.id === activeLesson)?.title}</h3>
               <p className="text-2xl text-slate-700 mb-6 font-medium leading-relaxed">

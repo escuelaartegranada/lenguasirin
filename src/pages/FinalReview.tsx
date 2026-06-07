@@ -83,7 +83,7 @@ export const FinalReview = () => {
       </div>
 
       <Card className="w-full text-center border-4 border-amber-200 mb-8 py-10">
-        <h2 className="text-3xl font-black text-slate-700 mb-10 leading-relaxed">
+        <h2 className="text-3xl font-black text-slate-700 mb-10 leading-relaxed max-w-2xl mx-auto">
           {currentExercise.question}
         </h2>
         
@@ -92,8 +92,8 @@ export const FinalReview = () => {
              <Button
              key={idx}
              size="lg"
-             variant="ghost"
-             className="border-2 border-slate-200 bg-white hover:border-amber-300 py-4 text-xl"
+             variant="option"
+             className="py-6 text-2xl font-handwriting tracking-wide"
              onClick={() => handleAnswer(option)}
            >
              {option}

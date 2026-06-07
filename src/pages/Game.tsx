@@ -112,32 +112,48 @@ export const Game = () => {
         />
       </div>
 
-      <Card animate={true} className="w-full max-w-2xl text-center relative border-4 border-sky-100">
-        <div className="absolute -top-6 -right-2">
-          <AudioButton text={currentExercise.question} className="bg-white shadow-lg border border-slate-100 p-4 w-14 h-14" />
+      <Card animate={true} className="w-full max-w-2xl text-center relative border-8 border-sky-100 rounded-[3rem] shadow-2xl">
+        <div className="absolute -top-8 -right-4 z-20">
+          <AudioButton text={currentExercise.question} className="w-16 h-16 shadow-xl" />
         </div>
         
-        <h2 className="text-3xl font-black text-slate-700 mb-10 mt-4 leading-relaxed">
+        <h2 className="text-4xl font-black text-slate-700 mb-10 mt-6 leading-relaxed">
           {currentExercise.question}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {currentExercise.options?.map((option, idx) => (
-            <Button
-              key={idx}
-              size="xl"
-              variant="3d"
-              className={cn(
-                "h-auto min-h-24 whitespace-normal text-2xl shadow-sm",
-                feedback === 'correct' && (Array.isArray(currentExercise.correctAnswer) ? currentExercise.correctAnswer.includes(option) : option === currentExercise.correctAnswer) && "from-green-300 to-green-500 border-green-600 text-white",
-                feedback === 'incorrect' && "opacity-50"
-              )}
-              onClick={() => handleAnswer(option)}
-              disabled={feedback !== 'idle'}
-            >
-              {option}
-            </Button>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {currentExercise.options?.map((option, idx) => {
+            const isCorrect = Array.isArray(currentExercise.correctAnswer) ? currentExercise.correctAnswer.includes(option) : option === currentExercise.correctAnswer;
+            const isFeedbackCorrect = feedback === 'correct' && isCorrect;
+            
+            // Dynamic colorful buttons for options
+            const colorVariants = [
+              "from-sky-300 to-sky-500 border-sky-600 shadow-[0_6px_0_theme(colors.sky.700)] text-white hover:from-sky-400 hover:to-sky-600",
+              "from-purple-300 to-purple-500 border-purple-600 shadow-[0_6px_0_theme(colors.purple.700)] text-white hover:from-purple-400 hover:to-purple-600",
+              "from-amber-300 to-amber-500 border-amber-600 shadow-[0_6px_0_theme(colors.amber.700)] text-white hover:from-amber-400 hover:to-amber-600",
+              "from-rose-300 to-rose-500 border-rose-600 shadow-[0_6px_0_theme(colors.rose.700)] text-white hover:from-rose-400 hover:to-rose-600",
+            ];
+            
+            const baseColor = colorVariants[idx % colorVariants.length];
+
+            return (
+              <Button
+                key={idx}
+                size="xl"
+                variant="ghost"
+                className={cn(
+                  "h-auto min-h-24 whitespace-normal text-3xl font-handwriting tracking-wide border-4 bg-gradient-to-b active:translate-y-1.5 active:shadow-none",
+                  baseColor,
+                  isFeedbackCorrect && "from-green-400 to-green-600 border-green-700 shadow-[0_6px_0_theme(colors.green.800)] text-white",
+                  feedback === 'incorrect' && "opacity-50"
+                )}
+                onClick={() => handleAnswer(option)}
+                disabled={feedback !== 'idle'}
+              >
+                {option}
+              </Button>
+            );
+          })}
         </div>
 
         <AnimatePresence>
